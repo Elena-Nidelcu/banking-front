@@ -11,7 +11,7 @@ function App() {
           {/* Define routes here */}
           <Route path="/login" element={<LoginRegistration />} />
           
-          {/* Add more routes for other pages, e.g., dashboard, account, etc. */}
+          {/* Add more routes for other pages,e.g., dashboard, account, etc. */}
           <Route path="/" element={
             <div>
               <h1>Welcome to the Web Banking System</h1>
