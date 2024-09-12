@@ -1,25 +1,30 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import LoginRegistration from './pages/LoginRegistration/LoginRegistration';
+import TransactionHistory from './pages/TransactionHistory/TransactionHistory';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Transfer from './pages/Transfer/Transfer';
+import Profile from './pages/Profile/Profile';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          {/* Define routes here */}
           <Route path="/login" element={<LoginRegistration />} />
-          
-          {/* Add more routes for other pages,e.g., dashboard, account, etc. */}
+          <Route path="/transaction-history" element={<TransactionHistory />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/transfer" element={<Transfer />} />
+          <Route path="/profile" element={<Profile />} />
+
           <Route path="/" element={
             <div>
               <h1>Welcome to the Web Banking System</h1>
-              <p>This is the home page. Please <a href="/login">login</a>.</p>
+              <p>Please <Link to="/login">login</Link> to access your account.</p>
             </div>
           } />
 
-          {/* Add a catch-all route for 404 (Not Found) */}
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Routes>
       </div>
