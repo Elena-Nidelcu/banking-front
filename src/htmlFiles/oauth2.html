@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Banking Consent Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .consent-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 400px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .consent-box h2 {
+            color: #333;
+            font-size: 18px;
+        }
+
+        .consent-box p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .permissions {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .permissions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .permissions ul li {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .checkbox {
+            margin-right: 10px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .buttons button {
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .allow-btn {
+            background-color: #4285f4;
+            color: white;
+        }
+
+        .cancel-btn {
+            background-color: transparent;
+            color: #4285f4;
+            margin-right: 10px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="consent-box">
+    <h2>WebBank wants to access your account</h2>
+    <p>This will allow <strong>WebBank</strong> to:</p>
+
+    <div class="permissions">
+        <ul>
+            <li><input type="checkbox" class="checkbox" id="balance" checked> View your account balance and transactions</li>
+            <li><input type="checkbox" class="checkbox" id="transfer" checked> Transfer funds between your accounts</li>
+            <li><input type="checkbox" class="checkbox" id="payments" checked> Make payments on your behalf</li>
+        </ul>
+    </div>
+
+<br><p>Make sure you trust WebBank. You may share sensitive information with this app.</p>
+
+    <div class="buttons">
+        <button class="cancel-btn" >Cancel</button>
+        <button class="allow-btn" >Allow</button>
+    </div>
+
+    <div class="footer">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+    </div>
+</div>
+
+</body>
+</html>
