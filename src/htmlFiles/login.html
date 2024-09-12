@@ -17,7 +17,7 @@
             justify-content: flex-end;
             align-items: center;
             height: 100vh;
-            padding-right: 50px; /* Moves the form to the right */
+            padding-right: 50px; 
         }
         .form-container {
             background-color: white;
@@ -89,25 +89,21 @@
 <div class="form-container">
     <h2>Bank Login</h2>
     <form action="/submit-login" method="post">
-        <!-- Email section -->
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
         </div>
 
-        <!-- Password section -->
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
         </div>
 
-        <!-- Checkbox for terms and conditions -->
         <div class="form-group checkbox-group">
             <input type="checkbox" id="terms" name="terms" required>
             <label for="terms">I accept the <a href="#">terms and conditions</a></label>
         </div>
 
-        <!-- Submit button -->
         <button type="submit">Login</button>
     </form>
 </div>
