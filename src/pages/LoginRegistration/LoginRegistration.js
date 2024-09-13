@@ -1,42 +1,62 @@
-// src/pages/LoginRegistration/LoginRegistration.js
+// src/pages/LoginRegistration/Registration.js
 import React, { useState } from 'react';
 import './LoginRegistration.css';
 
-const LoginRegistration = () => {
-  const [isLogin, setIsLogin] = useState(true);
+const Registration = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
 
-  const handleToggle = () => {
-    setIsLogin(!isLogin);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form submission logic here
+    // Add registration form submission logic here
+    console.log('Registration form submitted:', formData);
   };
 
   return (
-    <div className="login-registration-container">
+    <div className="registration-container">
       <div className="form-container">
-        <h2>{isLogin ? 'Login' : 'Register'}</h2>
+        <h2>Register</h2>
         <form onSubmit={handleSubmit}>
-          {!isLogin && (
-            <>
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" required />
-            </>
-          )}
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" required />
-          <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Register</button>
         </form>
-        <button onClick={handleToggle} className="toggle-button">
-          {isLogin ? 'Need an account? Register' : 'Already have an account? Login'}
-        </button>
       </div>
     </div>
   );
 };
 
-export default LoginRegistration;
+export default Registration;

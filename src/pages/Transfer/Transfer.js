@@ -1,99 +1,108 @@
 // src/pages/Transfer/Transfer.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Transfer.css';
 
 const Transfer = () => {
-  // Sample list of users who have been previously transferred money to
-  const previousUsers = ['Alice', 'Bob', 'Charlie'];
-
   const [recipient, setRecipient] = useState('');
   const [amount, setAmount] = useState('');
   const [message, setMessage] = useState('');
-  const [previousTransfers, setPreviousTransfers] = useState([]);
+  const [selectedPreviousRecipient, setSelectedPreviousRecipient] = useState('');
 
+  // List of previous recipients
+  const previousRecipients = ['John Doe', 'Jane Smith', 'Company ABC'];
+
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Basic validation
-    if (!recipient || !amount || parseFloat(amount) <= 0) {
-      setMessage('Please enter a valid recipient and amount.');
-      return;
+    if (amount > 0 && recipient) {
+      // Process the transfer logic here
+      alert(`Transfer of $${amount} to ${recipient} was successful!`);
+    } else {
+      alert('Please fill in all fields and ensure the amount is greater than zero.');
     }
+  };
 
-    // Simulate a transfer operation (store the recipient in previousTransfers)
-    setPreviousTransfers((prevTransfers) => [
-      ...prevTransfers,
-      { recipient, amount }
-    ]);
+  // Auto-fill recipient when selecting from the dropdown
+  const handlePreviousRecipientChange = (e) => {
+    const selectedRecipient = e.target.value;
+    setSelectedPreviousRecipient(selectedRecipient);
+    setRecipient(selectedRecipient);
+  };
 
-    setMessage(`Successfully transferred $${amount} to ${recipient}.`);
-    setRecipient('');
-    setAmount('');
+  // If user manually types in the recipient field, clear the dropdown selection
+  const handleRecipientChange = (e) => {
+    setRecipient(e.target.value);
+    if (selectedPreviousRecipient) {
+      setSelectedPreviousRecipient(''); // Clear dropdown when manual input happens
+    }
   };
 
   return (
     <div className="transfer-container">
-      <h1>Transfer Money</h1>
-
-      <form onSubmit={handleSubmit}>
+      <h2 className="transfer-title">Transfer Money</h2>
+      <form className="transfer-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="recipient">Recipient Username:</label>
-          <input
-            type="text"
-            id="recipient"
-            value={recipient}
-            onChange={(e) => setRecipient(e.target.value)}
-            placeholder="Enter recipient's username"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="previous-users">Or Select from Previous Users:</label>
+          <label htmlFor="previousRecipients">Select Previous Recipient</label>
           <select
-            id="previous-users"
-            onChange={(e) => setRecipient(e.target.value)}
-            value={recipient}
+            id="previousRecipients"
+            value={selectedPreviousRecipient}
+            onChange={handlePreviousRecipientChange}
+            className="recipient-dropdown"
           >
-            <option value="">Select a user</option>
-            {previousUsers.map((user, index) => (
-              <option key={index} value={user}>
-                {user}
+            <option value="">-- Select a Previous Recipient --</option>
+            {previousRecipients.map((name, index) => (
+              <option key={index} value={name}>
+                {name}
               </option>
             ))}
           </select>
         </div>
 
         <div className="form-group">
-          <label htmlFor="amount">Amount to Transfer:</label>
+          <label htmlFor="recipient">Recipient’s Name/Account Number</label>
+          <input
+            type="text"
+            id="recipient"
+            value={recipient}
+            onChange={handleRecipientChange} // Clear dropdown when user types manually
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="amount">Amount</label>
           <input
             type="number"
             id="amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            placeholder="Enter amount"
             required
+            min="0.01"
+            step="0.01"
           />
         </div>
 
-        <button type="submit">Transfer</button>
+        <div className="form-group">
+          <label htmlFor="message">Optional Message</label>
+          <input
+            type="text"
+            id="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
+
+        <button type="submit" className="send-button" disabled={!(recipient && amount > 0)}>
+          Send
+        </button>
       </form>
 
-      {message && <p className="message">{message}</p>}
-
-      {/* Show previous transfers */}
-      {previousTransfers.length > 0 && (
-        <div className="previous-transfers">
-          <h2>Previous Transfers</h2>
-          <ul>
-            {previousTransfers.map((transfer, index) => (
-              <li key={index}>
-                Transferred ${transfer.amount} to {transfer.recipient}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="back-button-container">
+        <Link to="/dashboard" className="back-button">
+          Back to Dashboard
+        </Link>
+      </div>
     </div>
   );
 };

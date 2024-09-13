@@ -1,55 +1,79 @@
 /* src/pages/Profile/Profile.css */
+
 .profile-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .profile-container h1 {
-    text-align: center;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .message {
-    margin-top: 20px;
-    text-align: center;
-    color: green;
-  }
-  
-  .error {
-    margin-top: 20px;
-    text-align: center;
-    color: red;
-  }
-  
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.profile-title {
+  text-align: center;
+  font-size: 2rem; /* Consistent font size with other pages */
+  font-weight: bold; /* Consistent font weight */
+  color: #3498db; /* Blue color to match the primary theme */
+  margin-bottom: 20px; /* Space below the title */
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #007bff; /* Primary blue button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #17a2b8;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.back-button:hover {
+  background-color: #138496;
+}

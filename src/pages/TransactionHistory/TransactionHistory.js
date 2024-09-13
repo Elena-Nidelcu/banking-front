@@ -1,57 +1,52 @@
 // src/pages/TransactionHistory/TransactionHistory.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './TransactionHistory.css';
 
-const transactions = [
-  {
-    id: 'TXN123456',
-    date: '2024-09-01',
-    type: 'Deposit',
-    amount: '$500.00',
-    status: 'Completed',
-  },
-  {
-    id: 'TXN123457',
-    date: '2024-09-03',
-    type: 'Withdrawal',
-    amount: '$100.00',
-    status: 'Pending',
-  },
-  {
-    id: 'TXN123458',
-    date: '2024-09-05',
-    type: 'Transfer',
-    amount: '$200.00',
-    status: 'Completed',
-  },
-];
-
 const TransactionHistory = () => {
+  const transactions = [
+    { date: '2024-09-01', amount: 200, recipient: 'John Doe', type: 'credit' },
+    { date: '2024-09-02', amount: -100, recipient: 'Jane Smith', type: 'debit' },
+    { date: '2024-09-05', amount: 150, recipient: 'Company ABC', type: 'credit' },
+    { date: '2024-09-10', amount: -50, recipient: 'Shop XYZ', type: 'debit' },
+  ];
+
   return (
     <div className="transaction-history-container">
-      <h2>Transaction History</h2>
-      <table className="transaction-table">
+      <h2 className="transaction-history-title">Transaction History</h2>
+
+      {/* Transactions Table */}
+      <table className="transactions-table">
         <thead>
           <tr>
             <th>Date</th>
-            <th>Transaction ID</th>
-            <th>Type</th>
             <th>Amount</th>
-            <th>Status</th>
+            <th>Recipient</th>
+            <th>Type</th>
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction) => (
-            <tr key={transaction.id}>
+          {transactions.map((transaction, index) => (
+            <tr key={index} className={transaction.type}>
               <td>{transaction.date}</td>
-              <td>{transaction.id}</td>
-              <td>{transaction.type}</td>
-              <td>{transaction.amount}</td>
-              <td>{transaction.status}</td>
+              <td>
+                {transaction.amount > 0 ? (
+                  <span className="credit">+${transaction.amount}</span>
+                ) : (
+                  <span className="debit">-${Math.abs(transaction.amount)}</span>
+                )}
+              </td>
+              <td>{transaction.recipient}</td>
+              <td>{transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1)}</td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {/* Back to Dashboard Button */}
+      <div className="back-button-container">
+        <Link to="/dashboard" className="back-button">Back to Dashboard</Link>
+      </div>
     </div>
   );
 };

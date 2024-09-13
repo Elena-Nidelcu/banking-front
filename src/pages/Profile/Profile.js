@@ -3,132 +3,120 @@ import React, { useState } from 'react';
 import './Profile.css';
 
 const Profile = () => {
-  // State for user profile data
-  const [profile, setProfile] = useState({
+  const [profileData, setProfileData] = useState({
     name: '',
     address: '',
     phone: '',
-    newPassword: '',
-    confirmPassword: '',
-    mfaEnabled: false
   });
-  
-  // State for messages and errors
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setProfile(prevProfile => ({
-      ...prevProfile,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+  const [passwordData, setPasswordData] = useState({
+    currentPassword: '',
+    newPassword: '',
+    confirmNewPassword: '',
+  });
+
+  const handleProfileChange = (e) => {
+    setProfileData({
+      ...profileData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (profile.newPassword !== profile.confirmPassword) {
-      setError('Passwords do not match.');
-      return;
-    }
-
-    // Simulate a profile update
-    setMessage('Profile updated successfully!');
-    setError('');
-    // Clear form (optional)
-    setProfile({
-      name: '',
-      address: '',
-      phone: '',
-      newPassword: '',
-      confirmPassword: '',
-      mfaEnabled: false
+  const handlePasswordChange = (e) => {
+    setPasswordData({
+      ...passwordData,
+      [e.target.name]: e.target.value,
     });
+  };
+
+  const handleProfileSubmit = (e) => {
+    e.preventDefault();
+    // Add profile update logic here
+  };
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    // Add password change logic here
   };
 
   return (
     <div className="profile-container">
-      <h1>Profile Management</h1>
-      
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={profile.name}
-            onChange={handleChange}
-            placeholder="Enter your name"
-          />
+      <h2 className="profile-title">Profile</h2>
+      <form className="profile-form" onSubmit={handleProfileSubmit}>
+        <div className="card">
+          <h3>Personal Information</h3>
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={profileData.name}
+              onChange={handleProfileChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={profileData.address}
+              onChange={handleProfileChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="phone">Phone Number</label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              value={profileData.phone}
+              onChange={handleProfileChange}
+            />
+          </div>
+          <button type="submit" className="btn">Save Changes</button>
         </div>
-
-        <div className="form-group">
-          <label htmlFor="address">Address:</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={profile.address}
-            onChange={handleChange}
-            placeholder="Enter your address"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="phone">Phone:</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={profile.phone}
-            onChange={handleChange}
-            placeholder="Enter your phone number"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="newPassword">New Password:</label>
-          <input
-            type="password"
-            id="newPassword"
-            name="newPassword"
-            value={profile.newPassword}
-            onChange={handleChange}
-            placeholder="Enter new password"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={profile.confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm new password"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="mfaEnabled">Enable MFA:</label>
-          <input
-            type="checkbox"
-            id="mfaEnabled"
-            name="mfaEnabled"
-            checked={profile.mfaEnabled}
-            onChange={handleChange}
-          />
-        </div>
-
-        <button type="submit">Update Profile</button>
-
-        {message && <p className="message">{message}</p>}
-        {error && <p className="error">{error}</p>}
       </form>
+
+      <form className="profile-form" onSubmit={handlePasswordSubmit}>
+        <div className="card password-change-section">
+          <h3>Change Password</h3>
+          <div className="form-group">
+            <label htmlFor="currentPassword">Current Password</label>
+            <input
+              type="password"
+              id="currentPassword"
+              name="currentPassword"
+              value={passwordData.currentPassword}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="newPassword">New Password</label>
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              value={passwordData.newPassword}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="confirmNewPassword">Confirm New Password</label>
+            <input
+              type="password"
+              id="confirmNewPassword"
+              name="confirmNewPassword"
+              value={passwordData.confirmNewPassword}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <button type="submit" className="btn">Change Password</button>
+        </div>
+      </form>
+
+      <a href="/dashboard" className="back-button">Back to Dashboard</a>
     </div>
   );
 };
