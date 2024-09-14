@@ -1,6 +1,7 @@
 // src/pages/LoginRegistration/Registration.js
 import React, { useState } from 'react';
-import './LoginRegistration.css';
+import './Registration.css';
+import 'E:/ReactProject/banking/src/styles/buttons.css';
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +53,7 @@ const Registration = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="btn">Register</button>
+          <button type="submit" className="save-btn">Register</button>
         </form>
       </div>
     </div>

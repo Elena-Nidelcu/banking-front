@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './TransactionHistory.css';
+import 'E:/ReactProject/banking/src/styles/buttons.css';
 
 const TransactionHistory = () => {
   const transactions = [

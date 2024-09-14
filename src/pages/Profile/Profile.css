@@ -51,29 +51,3 @@
   border-radius: 5px;
   font-size: 16px;
 }
-
-.btn {
-  padding: 10px;
-  background-color: #007bff; /* Primary blue button color */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.back-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 15px;
-  background-color: #17a2b8;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  text-align: center;
-}
-
-.back-button:hover {
-  background-color: #138496;
-}

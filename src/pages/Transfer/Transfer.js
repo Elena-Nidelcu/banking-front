@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Transfer.css';
+import 'E:/ReactProject/banking/src/styles/buttons.css';
 
 const Transfer = () => {
   const [recipient, setRecipient] = useState('');
@@ -93,7 +94,7 @@ const Transfer = () => {
           />
         </div>
 
-        <button type="submit" className="send-button" disabled={!(recipient && amount > 0)}>
+        <button type="submit" className="save-btn" disabled={!(recipient && amount > 0)}>
           Send
         </button>
       </form>

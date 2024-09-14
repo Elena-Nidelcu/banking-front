@@ -1,7 +1,7 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import LoginRegistration from './pages/LoginRegistration/LoginRegistration';
+import Registration from './pages/Registration/Registration';
 import TransactionHistory from './pages/TransactionHistory/TransactionHistory';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Transfer from './pages/Transfer/Transfer';
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/login" element={<LoginRegistration />} />
+          <Route path="/login" element={<Registration />} />
           <Route path="/transaction-history" element={<TransactionHistory />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/transfer" element={<Transfer />} />

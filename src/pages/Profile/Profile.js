@@ -1,6 +1,7 @@
 // src/pages/Profile/Profile.js
 import React, { useState } from 'react';
 import './Profile.css';
+import 'E:/ReactProject/banking/src/styles/buttons.css';
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -75,7 +76,7 @@ const Profile = () => {
               onChange={handleProfileChange}
             />
           </div>
-          <button type="submit" className="btn">Save Changes</button>
+          <button type="submit" className="save-btn">Save Changes</button>
         </div>
       </form>
 
@@ -112,11 +113,13 @@ const Profile = () => {
               onChange={handlePasswordChange}
             />
           </div>
-          <button type="submit" className="btn">Change Password</button>
+          <button type="submit" className="save-btn">Change Password</button>
         </div>
       </form>
 
-      <a href="/dashboard" className="back-button">Back to Dashboard</a>
+      <div className="back-button-container">
+        <a href="/dashboard" className="back-button">Back to Dashboard</a>
+      </div>
     </div>
   );
 };
