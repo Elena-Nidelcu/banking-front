@@ -42,7 +42,7 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h2 className="profile-title">Profile</h2>
+      <h2 className="page-title">Profile</h2>
       <form className="profile-form" onSubmit={handleProfileSubmit}>
         <div className="card">
           <h3>Personal Information</h3>

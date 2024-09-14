@@ -9,14 +9,6 @@
   background-color: #f9f9f9;
 }
 
-.profile-title {
-  text-align: center;
-  font-size: 2rem; /* Consistent font size with other pages */
-  font-weight: bold; /* Consistent font weight */
-  color: #3498db; /* Blue color to match the primary theme */
-  margin-bottom: 20px; /* Space below the title */
-}
-
 .profile-form {
   display: flex;
   flex-direction: column;

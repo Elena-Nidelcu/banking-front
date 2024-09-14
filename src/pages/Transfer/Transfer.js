@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Transfer.css';
 import 'E:/ReactProject/banking/src/styles/buttons.css';
+import 'E:/ReactProject/banking/src/styles/titles.css';
 
 const Transfer = () => {
   const [recipient, setRecipient] = useState('');
@@ -41,7 +42,7 @@ const Transfer = () => {
 
   return (
     <div className="transfer-container">
-      <h2 className="transfer-title">Transfer Money</h2>
+      <h2 className="page-title">Transfer Money</h2>
       <form className="transfer-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="previousRecipients">Select Previous Recipient</label>

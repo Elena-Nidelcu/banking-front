@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './Registration.css';
 import 'E:/ReactProject/banking/src/styles/buttons.css';
+import 'E:/ReactProject/banking/src/styles/titles.css';
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const Registration = () => {
   return (
     <div className="registration-container">
       <div className="form-container">
-        <h2 className="transfer-title">Transfer Money</h2>
+        <h2 className="page-title">Registration</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>
           <input

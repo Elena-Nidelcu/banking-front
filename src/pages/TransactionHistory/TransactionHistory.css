@@ -4,16 +4,6 @@
   padding: 20px;
 }
 
-.transaction-history-title {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2rem; /* Larger font size for emphasis */
-  font-weight: bold; /* Bold for extra focus */
-  color: #3498db; /* Blue color to match the theme */
-  text-transform: uppercase; /* Make the text uppercase for styling */
-  letter-spacing: 1px; /* Adds some spacing between the letters */
-}
-
 .transactions-table {
   width: 100%;
   max-width: 800px;
