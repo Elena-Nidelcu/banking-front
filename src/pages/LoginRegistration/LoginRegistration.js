@@ -23,7 +23,7 @@ const Registration = () => {
   return (
     <div className="registration-container">
       <div className="form-container">
-        <h2>Register</h2>
+        <h2 className="transfer-title">Transfer Money</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>
           <input
@@ -52,7 +52,7 @@ const Registration = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit">Register</button>
+          <button type="submit" className="btn">Register</button>
         </form>
       </div>
     </div>
