@@ -1,8 +1,8 @@
 // src/pages/LoginRegistration/Registration.js
 import React, { useState } from 'react';
 import './Registration.css';
-import 'E:/ReactProject/banking/src/styles/buttons.css';
-import 'E:/ReactProject/banking/src/styles/titles.css';
+import '../../styles/buttons.css';
+import '../../styles/titles.css';
 
 const Registration = () => {
   const [formData, setFormData] = useState({

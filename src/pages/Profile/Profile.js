@@ -1,7 +1,8 @@
 // src/pages/Profile/Profile.js
 import React, { useState } from 'react';
 import './Profile.css';
-import 'E:/ReactProject/banking/src/styles/buttons.css';
+import '../../styles/buttons.css';
+import '../../styles/titles.css';
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({

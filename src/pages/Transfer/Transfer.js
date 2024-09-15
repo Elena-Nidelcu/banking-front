@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Transfer.css';
-import 'E:/ReactProject/banking/src/styles/buttons.css';
-import 'E:/ReactProject/banking/src/styles/titles.css';
+import '../../styles/buttons.css';
+import '../../styles/titles.css';
 
 const Transfer = () => {
   const [recipient, setRecipient] = useState('');
