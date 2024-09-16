@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './TransactionHistory.css';
 import '../../styles/buttons.css';
 import '../../styles/titles.css';
+import '../../styles/tables.css';
 import Header from '../../components/header';
 
 const TransactionHistory = () => {
@@ -15,12 +16,12 @@ const TransactionHistory = () => {
   ];
 
   return (
-    <div className="transaction-history-container">
+    <div className="table-container">
       <Header />
       <h2 className="page-title">Transaction History</h2>
 
       {/* Transactions Table */}
-      <table className="transactions-table">
+      <table className="table">
         <thead>
           <tr>
             <th>Date</th>

@@ -1,26 +1,5 @@
 /* src/pages/Manager/Manager.css */
 
-.manager-container {
-    padding: 20px;
-  }
-  
-  .transactions-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  .transactions-table th, .transactions-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .transactions-table th {
-    background-color: #3498db;
-  color: white;
-  }
-  
   .confirm-btn, .reject-btn {
     padding: 8px 12px;
     margin-right: 10px;
@@ -45,9 +24,5 @@
   
   .reject-btn:hover {
     background-color: #c82333;
-  }
-  
-  .back-button-container {
-    text-align: right;
   }
   

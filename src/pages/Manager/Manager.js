@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/buttons.css';
+import '../../styles/titles.css';
+import '../../styles/tables.css';
 import './Manager.css';
 import Header from '../../components/header';
 
@@ -27,11 +29,11 @@ const Manager = () => {
   };
 
   return (
-    <div className="manager-container">
+    <div className="table-container">
       <Header /> {/* Include the Header component */}
       <h2 className="page-title">Manage Transactions</h2>
 
-      <table className="transactions-table">
+      <table className="table">
         <thead>
           <tr>
             <th>Date</th>
