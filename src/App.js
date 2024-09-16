@@ -6,6 +6,7 @@ import TransactionHistory from './pages/TransactionHistory/TransactionHistory';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Transfer from './pages/Transfer/Transfer';
 import Profile from './pages/Profile/Profile';
+import Manager from './pages/Manager/Manager';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/manager" element={<Manager />} />
 
           <Route path="/" element={
             <div>
