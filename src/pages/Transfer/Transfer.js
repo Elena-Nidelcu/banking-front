@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Transfer.css';
 import '../../styles/buttons.css';
 import '../../styles/titles.css';
+import Header from '../../components/header';
 
 const Transfer = () => {
   const [recipient, setRecipient] = useState('');
@@ -42,6 +43,7 @@ const Transfer = () => {
 
   return (
     <div className="transfer-container">
+      <Header />
       <h2 className="page-title">Transfer Money</h2>
       <form className="transfer-form" onSubmit={handleSubmit}>
         <div className="form-group">
