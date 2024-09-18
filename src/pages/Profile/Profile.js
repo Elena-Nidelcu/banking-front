@@ -1,5 +1,6 @@
 // src/pages/Profile/Profile.js
 import React, { useState } from 'react';
+import DOMPurify from 'dompurify'; // Import DOMPurify to sanitize inputs
 import './Profile.css';
 import '../../styles/buttons.css';
 import '../../styles/titles.css';
@@ -7,7 +8,7 @@ import '../../styles/titles.css';
 const Profile = () => {
   const [profileData, setProfileData] = useState({
     name: '',
-    address: '',
+    email: '',
     phone: '',
   });
 
@@ -17,28 +18,44 @@ const Profile = () => {
     confirmNewPassword: '',
   });
 
+  // Sanitize input data for the profile form
   const handleProfileChange = (e) => {
+    const sanitizedValue = DOMPurify.sanitize(e.target.value);
     setProfileData({
       ...profileData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: sanitizedValue,
     });
   };
 
+  // Sanitize input data for the password form
   const handlePasswordChange = (e) => {
+    const sanitizedValue = DOMPurify.sanitize(e.target.value);
     setPasswordData({
       ...passwordData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: sanitizedValue,
     });
   };
 
   const handleProfileSubmit = (e) => {
     e.preventDefault();
-    // Add profile update logic here
+    const sanitizedProfileData = {
+      name: DOMPurify.sanitize(profileData.name),
+      address: DOMPurify.sanitize(profileData.address),
+      phone: DOMPurify.sanitize(profileData.phone),
+    };
+
+    // Add logic to submit sanitizedProfileData to the server
   };
 
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
-    // Add password change logic here
+    const sanitizedPasswordData = {
+      currentPassword: DOMPurify.sanitize(passwordData.currentPassword),
+      newPassword: DOMPurify.sanitize(passwordData.newPassword),
+      confirmNewPassword: DOMPurify.sanitize(passwordData.confirmNewPassword),
+    };
+
+    // Add logic to submit sanitizedPasswordData to the server
   };
 
   return (
@@ -58,12 +75,12 @@ const Profile = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="address">Address</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              id="address"
-              name="address"
-              value={profileData.address}
+              type="email"
+              id="email"
+              name="email" 
+              value={profileData.email} // Updated the state to use "email"
               onChange={handleProfileChange}
             />
           </div>

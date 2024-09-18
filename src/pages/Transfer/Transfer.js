@@ -1,6 +1,7 @@
 // src/pages/Transfer/Transfer.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import DOMPurify from 'dompurify'; // Import DOMPurify to sanitize inputs
 import './Transfer.css';
 import '../../styles/buttons.css';
 import '../../styles/titles.css';
@@ -18,9 +19,13 @@ const Transfer = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (amount > 0 && recipient) {
-      // Process the transfer logic here
-      alert(`Transfer of $${amount} to ${recipient} was successful!`);
+    const sanitizedRecipient = DOMPurify.sanitize(recipient);
+    const sanitizedAmount = DOMPurify.sanitize(amount);
+    const sanitizedMessage = DOMPurify.sanitize(message);
+
+    if (sanitizedAmount > 0 && sanitizedRecipient) {
+      // Process the transfer logic here with sanitized values
+      alert(`Transfer of $${sanitizedAmount} to ${sanitizedRecipient} was successful!`);
     } else {
       alert('Please fill in all fields and ensure the amount is greater than zero.');
     }
@@ -29,13 +34,15 @@ const Transfer = () => {
   // Auto-fill recipient when selecting from the dropdown
   const handlePreviousRecipientChange = (e) => {
     const selectedRecipient = e.target.value;
-    setSelectedPreviousRecipient(selectedRecipient);
-    setRecipient(selectedRecipient);
+    const sanitizedRecipient = DOMPurify.sanitize(selectedRecipient);
+    setSelectedPreviousRecipient(sanitizedRecipient);
+    setRecipient(sanitizedRecipient);
   };
 
   // If user manually types in the recipient field, clear the dropdown selection
   const handleRecipientChange = (e) => {
-    setRecipient(e.target.value);
+    const sanitizedRecipient = DOMPurify.sanitize(e.target.value);
+    setRecipient(sanitizedRecipient);
     if (selectedPreviousRecipient) {
       setSelectedPreviousRecipient(''); // Clear dropdown when manual input happens
     }
@@ -80,7 +87,7 @@ const Transfer = () => {
             type="number"
             id="amount"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => setAmount(DOMPurify.sanitize(e.target.value))}
             required
             min="0.01"
             step="0.01"
@@ -93,7 +100,7 @@ const Transfer = () => {
             type="text"
             id="message"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => setMessage(DOMPurify.sanitize(e.target.value))}
           />
         </div>
 

@@ -1,5 +1,6 @@
 // src/pages/LoginRegistration/Registration.js
 import React, { useState } from 'react';
+import DOMPurify from 'dompurify'; // Import DOMPurify for sanitizing input
 import './Registration.css';
 import '../../styles/buttons.css';
 import '../../styles/titles.css';
@@ -13,7 +14,11 @@ const Registration = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    // Sanitize the input value before setting it in the state
+    const sanitizedValue = DOMPurify.sanitize(value);
+
+    setFormData({ ...formData, [name]: sanitizedValue });
   };
 
   const handleSubmit = (e) => {
