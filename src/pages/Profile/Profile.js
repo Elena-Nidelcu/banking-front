@@ -7,7 +7,7 @@ import '../../styles/titles.css';
 const Profile = () => {
   const [profileData, setProfileData] = useState({
     name: '',
-    address: '',
+    email: '',
     phone: '',
   });
 
@@ -58,12 +58,12 @@ const Profile = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="address">Address</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              id="address"
-              name="address"
-              value={profileData.address}
+              type="email"
+              id="email"
+              name="email"
+              value={profileData.email}
               onChange={handleProfileChange}
             />
           </div>
